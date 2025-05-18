@@ -19,6 +19,12 @@
       href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&family=Tagesschrift&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karantina:wght@300;400;700&family=Tagesschrift&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="icon" href="./logo.png" type="image/png" />
     <style>
@@ -28,6 +34,30 @@
         --accent: #fbbc04;
         --card: #ffffff;
         --base-font-size: 20px; /* Base font size for scaling */
+      }
+
+      .tagesschrift-regular {
+        font-family: "Tagesschrift", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .karantina-light {
+        font-family: "Karantina", system-ui;
+        font-weight: 300;
+        font-style: normal;
+      }
+
+      .karantina-regular {
+        font-family: "Karantina", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .karantina-bold {
+        font-family: "Karantina", system-ui;
+        font-weight: 700;
+        font-style: normal;
       }
 
       .tagesschrift-regular {
@@ -170,6 +200,8 @@
         border: 2px solid var(--accent);
         outline: none;
         font-size: 16px;
+        box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.12),
+          0 1.5px 6px 0 rgba(0, 0, 0, 0.1);
       }
 
       .search-container .icon-left,
@@ -200,6 +232,10 @@
       }
 
       .filter-btn {
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
         border: 2px solid var(--accent);
         background: #efefef;
         padding: 6px 25px;
@@ -236,7 +272,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
       }
 
       .card img {
