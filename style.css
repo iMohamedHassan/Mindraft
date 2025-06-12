@@ -261,32 +261,6 @@ nav a:focus {
   scale: 1.04;
 }
 
-/* Glow background */
-.glow-bg {
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 1600px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(144, 0, 255, 0.35), transparent 80%);
-  filter: blur(140px);
-  animation: pulseGlow 4s ease-in-out infinite;
-  z-index: -1099990;
-  pointer-events: none;
-}
-
-/* Pulsing Glow Animation */
-@keyframes pulseGlow {
-  0%,
-  100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
 /* Scroll Animations */
 .scroll-in {
   opacity: 0;
@@ -306,10 +280,21 @@ nav a:focus {
   left: 0;
   bottom: 0;
   width: 100vw;
-  height: 520px; /* Adjust height as you like */
+  height: 520px; /* or your preferred height */
   background: linear-gradient(to bottom, transparent 0%, #5b02a8 100%);
-  z-index: -1099990;
+  z-index: -1452;
   pointer-events: none;
+  animation: purpleGlow 3s ease-in-out infinite;
+}
+
+@keyframes purpleGlow {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Hamburger menu styles */
