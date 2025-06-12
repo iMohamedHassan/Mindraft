@@ -1,62 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mind Draft</title>
-  <link rel="stylesheet" href="./style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="logo.png" type="image/png">
-</head>
-<body>
-
-  <div class="glow-bg"></div>
-
-  <header>
-    <div class="container header-content">
-      <div class="logo">
-        <img src="logo.png" alt="Mind Draft Logo" />
-        <span>Mind Draft</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mind Draft</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="logo.png" type="image/png" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-content">
+        <div class="logo">
+          <div class="logo-text">
+            <img src="logo.png" alt="Mind Draft Logo" />
+            <span>Mind Draft</span>
+          </div>
+          <button class="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">About us</a>
+          <a href="#">Contact</a>
+          <a href="#">Saved Links</a>
+        </nav>
+        <div class="auth">
+          <a class="signup">Sign Up</a>
+          <a class="login">Login</a>
+        </div>
       </div>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About us</a>
-        <a href="#">Contact</a>
-        <a href="#">Saved Links</a>
-      </nav>
-      <div class="auth">
+    </header>
+
+    <nav class="mobile-sidebar">
+      <a href="#">Home</a>
+      <a href="#">About us</a>
+      <a href="#">Contact</a>
+      <a href="#">Saved Links</a>
+      <div class="mobile-auth">
         <a class="signup">Sign Up</a>
         <a class="login">Login</a>
       </div>
-    </div>
-  </header>
+    </nav>
 
-  <section class="hero">
-    <div class="container">
-      <h1>All designer tools</h1>
-      <h2>In one place with <span class="highlight">AI</span></h2>
-      <p class="subtitle">Save your time. Design faster.</p>
+    <section class="hero scroll-in">
+      <div class="container">
+        <h1>All designer tools</h1>
+        <h2>In one place with <span class="highlight">AI</span></h2>
+        <p class="subtitle">Save your time. Design faster.</p>
 
-      <div class="features">
-        <div class="feature-card left float-down">
-          <h3>Design faster</h3>
-          <p>Boost your creativity with hand-picked tools and smart search</p>
+        <div class="features">
+          <div class="feature-card left float-down scroll-in">
+            <h3>Design faster</h3>
+            <p>Boost your creativity with hand-picked tools and smart search</p>
+          </div>
+          <div class="feature-card center float-up scroll-in">
+            <h3>Organize Your Resources</h3>
+            <p>
+              Save your favorite design tools, icons, fonts, and websites in one
+              place
+            </p>
+          </div>
+          <div class="feature-card right float-down scroll-in">
+            <h3>Discover AI Powered Tools</h3>
+            <p>
+              Get access to tools that help you generate mockups, color
+              palettes, and more with AI
+            </p>
+          </div>
         </div>
-        <div class="feature-card center float-up">
-          <h3>Organize Your Resources</h3>
-          <p>Save your favorite design tools, icons, fonts, and websites in one place</p>
-        </div>
-        <div class="feature-card right float-down">
-          <h3>Discover AI Powered Tools</h3>
-          <p>Get access to tools that help you generate mockups, color palettes, and more with AI</p>
+
+        <div class="cta scroll-in">
+          <button>Explore Now</button>
         </div>
       </div>
+    </section>
 
-      <div class="cta">
-        <button>Explore Now</button>
-      </div>
-    </div>
-  </section>
+    <div class="purple-bottom-bar"></div>
 
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Scroll-in animation
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        document
+          .querySelectorAll(".scroll-in")
+          .forEach((el) => observer.observe(el));
+
+        // Hamburger and sidebar toggle
+        const hamburger = document.querySelector(".hamburger");
+        const sidebar = document.querySelector(".mobile-sidebar");
+
+        hamburger.addEventListener("click", () => {
+          sidebar.classList.toggle("open");
+          hamburger.classList.toggle("open");
+          document.body.style.overflow = sidebar.classList.contains("open")
+            ? "hidden"
+            : "";
+        });
+
+        // Optional: close sidebar when clicking outside the menu content
+        sidebar.addEventListener("click", (e) => {
+          if (e.target === sidebar) {
+            sidebar.classList.remove("open");
+            hamburger.classList.remove("open");
+            document.body.style.overflow = "";
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

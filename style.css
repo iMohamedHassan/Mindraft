@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(to bottom, #111111 50%, #3e0076 100%);
+  background:#111111;
   color: #fff;
   overflow-x: hidden;
   position: relative;
@@ -47,13 +47,20 @@ header {
   display: flex;
   align-items: center;
   font-weight: 700;
-  gap: 10px;
+  gap: 110px;
   font-size: 1.8rem;
+  position: relative;
 }
 
-.logo img {
+.logo .logo-text img {
   width: 5rem;
   height: 5rem;
+}
+
+.logo-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 nav {
@@ -155,6 +162,7 @@ nav a:focus {
   background-clip: text;
   text-fill-color: transparent;
   font-weight: 700;
+  font-size: larger;
 }
 
 .subtitle {
@@ -224,6 +232,7 @@ nav a:focus {
 /* Call to Action */
 .cta {
   margin-top: 80px;
+  text-align: center;
 }
 
 .cta button {
@@ -238,29 +247,142 @@ nav a:focus {
   transition: all 0.3s ease;
 }
 
+.cta button:hover {
+  background: #eee;
+  scale: 1.04;
+}
+
 /* Glow background */
 .glow-bg {
-  position: absolute;
-  bottom: -250px;
+  position: fixed;
   left: 50%;
+  bottom: 0;
   transform: translateX(-50%);
   width: 1600px;
   height: 400px;
   background: radial-gradient(circle, rgba(144, 0, 255, 0.35), transparent 80%);
   filter: blur(140px);
   animation: pulseGlow 4s ease-in-out infinite;
-  z-index: 0;
-}
-
-.cta button:hover {
-  background: #eee;
-  scale: 1.04;
+  z-index: -1099990;
+  pointer-events: none;
 }
 
 /* Pulsing Glow Animation */
 @keyframes pulseGlow {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
+}
+
+/* Scroll Animations */
+.scroll-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.4,2,.6,1), transform 0.8s cubic-bezier(.4,2,.6,1);
+}
+
+.scroll-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Purple bar fixed at the bottom */
+.purple-bottom-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 520px; /* Adjust height as you like */
+  background: linear-gradient(to bottom, transparent 0%, #5b02a8 100%);
+  z-index: -1099990;
+  pointer-events: none;
+}
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10001;
+  margin-left: 12px;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 28px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Hamburger "X" animation when open */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Sidebar styles */
+.mobile-sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 78vw;
+  max-width: 320px;
+  height: 100vh;
+  background: #18122b;
+  box-shadow: 2px 0 24px rgba(80,0,120,0.18);
+  padding: 32px 24px 24px 24px;
+  z-index: 10000;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mobile-sidebar.open {
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-sidebar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.15rem;
+  margin: 18px 0;
+  font-weight: 600;
+}
+
+.mobile-sidebar .auth {
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.close-sidebar {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
 }
 
 /* Responsive Design */
@@ -271,7 +393,7 @@ nav a:focus {
   }
 
   .feature-card {
-    max-width: 90%;
+    max-width: 60%;
     margin-bottom: 30px;
   }
 
@@ -290,25 +412,174 @@ nav a:focus {
 }
 
 @media (max-width: 576px) {
+  /* Header: Stack and center */
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 0 0 10px 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 14px; /* Adjusted for better spacing between logo-text and hamburger */
+    font-size: 1.3rem;
+    width: 100%;
+  }
+
+  .logo .logo-text img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .logo-text {
+    gap: 8px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 4px 0;
+  }
+
+  /* Feature Cards: Stack and remove float animation */
+  .features {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 30px;
+  }
+
+  .feature-card {
+    max-width: 95%;
+    min-width: unset;
+    margin-bottom: 18px;
+    animation: none !important;
+    /* Remove float-up/float-down animation */
+    transform: none !important;
+  }
+
+  /* Hero section: smaller text */
   .hero h1 {
     font-size: 2rem;
   }
 
   .hero h2 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .subtitle {
     font-size: 0.95rem;
   }
 
-  .signup {
-    padding: 6px 14px;
-    font-size: 0.9rem;
-  }
-
+  /* Hide desktop nav/auth on mobile, show hamburger */
   nav,
   .auth {
-    gap: 12px;
+    display: none ;
+  }
+  .hamburger {
+    display: flex;
+    width: 45px;
+  }
+  .mobile-sidebar {
+    display: none;
+  }
+  .mobile-sidebar.open {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  .mobile-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+    width: 100%;
+    align-items: stretch;
+  }
+  .mobile-auth .signup,
+  .mobile-auth .login {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 577px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 0 0 10px 0;
+  }
+
+  .logo {
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  nav {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 1.1rem;
+    padding: 6px 0;
+  }
+
+  .auth {
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    margin-top: 0;
+    justify-content: center;
+  }
+
+  .signup, .login {
+    width: auto;
+    font-size: 1rem;
+    padding: 8px 18px;
+  }
+
+  .features {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .feature-card {
+    max-width: 320px;
+    min-width: 220px;
+    margin-bottom: 18px;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero h2 {
+    font-size: 1.3rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 }
