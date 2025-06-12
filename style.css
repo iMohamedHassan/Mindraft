@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@700&display=swap");
+
 /* Reset & Base */
 * {
   margin: 0;
@@ -60,6 +63,10 @@ header {
 .logo-text {
   display: flex;
   align-items: center;
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
   gap: 10px;
 }
 
@@ -92,37 +99,25 @@ nav a:focus {
   margin-top: 10px;
 }
 
-.signup {
-  padding: 12px 26px; /* More padding */
-  border-radius: 24px;
-  background: rgba(30, 41, 59, 0.18); /* subtle dark blue, low opacity */
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  font-size: 1.1rem; /* Larger font */
-  box-shadow: 0 2px 12px 0 rgba(169, 69, 255, 0.15);
-  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-}
-
-.login {
-  padding: 12px 26px; /* More padding */
-  border-radius: 24px;
-  background: rgba(30, 41, 59, 0.18); /* subtle dark blue, low opacity */
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  font-size: 1.1rem; /* Larger font */
-  box-shadow: 0 2px 12px 0 rgba(169, 69, 255, 0.15);
-  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-}
-
 .signup,
+.login {
+  padding: 10px 28px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: none;
+  background: #fff;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px 0 rgba(80, 0, 120, 0.10);
+}
+
+.signup:hover,
 .login:hover {
-  background: rgba(30, 41, 59, 0.32);
+  background: #4a00e0;
   color: #fff;
-  box-shadow: 0 4px 24px 0 rgba(169, 69, 255, 0.25);
+  box-shadow: 0 4px 24px 0 rgba(74, 0, 224, 0.18);
 }
 
 /* Hero Section */
@@ -137,14 +132,14 @@ nav a:focus {
 .hero h1 {
   margin-top: 0;
   font-size: 4.5rem;
-  font-weight: 700;
+  font-weight: 600;
   text-shadow: 0 2px 24px #a945ff33;
   letter-spacing: 1px;
 }
 
 .hero h2 {
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 200;
   margin-top: 10px;
   color: #cbbaff;
   background: linear-gradient(90deg, #ffffff, #999999);
@@ -169,6 +164,7 @@ nav a:focus {
 .subtitle {
   margin-top: 15px;
   font-size: 1.2rem;
+  font-weight: 600;
   color: #bbb;
 }
 
@@ -204,11 +200,13 @@ nav a:focus {
 .feature-card h3 {
   font-size: 1.4rem;
   margin-bottom: 15px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
 .feature-card p {
   font-size: 1rem;
   color: #ddd;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
 /* Floating Animations */
@@ -435,6 +433,10 @@ nav a:focus {
   }
 
   .logo-text {
+    font-family: "Baloo Bhai 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
     gap: 8px;
   }
 
