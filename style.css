@@ -1,3 +1,6 @@
+/* ===========================
+   Imports & Base Styles
+   =========================== */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@700&display=swap");
 
@@ -21,7 +24,9 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Container: narrower for readability */
+/* ===========================
+   Layout Containers
+   =========================== */
 .container {
   max-width: 1600px;
   margin: 0 auto;
@@ -30,7 +35,9 @@ html {
   z-index: 2;
 }
 
-/* Header */
+/* ===========================
+   Header
+   =========================== */
 header {
   padding: 40px 0;
   background: transparent;
@@ -70,9 +77,12 @@ header {
   gap: 10px;
 }
 
+/* ===========================
+   Navigation
+   =========================== */
 nav {
   display: flex;
-  gap: 40px; /* Increased gap */
+  gap: 40px;
   flex-wrap: wrap;
 }
 
@@ -92,9 +102,12 @@ nav a:focus {
   text-shadow: 0 0 8px #a945ff55;
 }
 
+/* ===========================
+   Auth Buttons
+   =========================== */
 .auth {
   display: flex;
-  gap: 28px; /* Increased gap */
+  gap: 28px;
   align-items: center;
   margin-top: 10px;
 }
@@ -110,17 +123,12 @@ nav a:focus {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 12px 0 rgba(80, 0, 120, 0.10);
+  box-shadow: 0 2px 12px 0 rgba(80, 0, 120, 0.1);
 }
 
-.signup:hover,
-.login:hover {
-  background: linear-gradient(90deg, #4a00e0, #8e2de2);
-  color: #fff;
-  box-shadow: 0 4px 24px 0 rgba(74, 0, 224, 0.18);
-}
-
-/* Hero Section */
+/* ===========================
+   Hero Section
+   =========================== */
 .hero {
   text-align: center;
   padding: 0 0 100px;
@@ -168,7 +176,9 @@ nav a:focus {
   color: #bbb;
 }
 
-/* Feature Cards */
+/* ===========================
+   Feature Cards
+   =========================== */
 .features {
   margin-top: 60px;
   display: flex;
@@ -209,7 +219,9 @@ nav a:focus {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
-/* Floating Animations */
+/* ===========================
+   Floating Animations
+   =========================== */
 .float-up {
   animation: floatUpDown 4s ease-in-out infinite alternate;
 }
@@ -236,13 +248,16 @@ nav a:focus {
   }
 }
 
-/* Call to Action */
+/* ===========================
+   Call to Action
+   =========================== */
 .cta {
   margin-top: 80px;
   text-align: center;
 }
 
-.cta button {
+.cta a {
+  display: inline-block;
   padding: 12px 30px;
   font-size: 1rem;
   border-radius: 25px;
@@ -252,14 +267,16 @@ nav a:focus {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
-
-.cta button:hover {
+.cta a:hover {
   background: #eee;
-  scale: 1.04;
+  transform: scale(1.04);
 }
 
-/* Scroll Animations */
+/* ===========================
+   Scroll Animations
+   =========================== */
 .scroll-in {
   opacity: 0;
   transform: translateY(40px);
@@ -272,13 +289,15 @@ nav a:focus {
   transform: translateY(0);
 }
 
-/* Purple bar fixed at the bottom */
+/* ===========================
+   Purple Bottom Bar
+   =========================== */
 .purple-bottom-bar {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100vw;
-  height: 520px; /* or your preferred height */
+  height: 520px;
   background: linear-gradient(to bottom, transparent 0%, #5b02a8 100%);
   z-index: -1452;
   pointer-events: none;
@@ -295,7 +314,9 @@ nav a:focus {
   }
 }
 
-/* Hamburger menu styles */
+/* ===========================
+   Hamburger Menu
+   =========================== */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -319,7 +340,6 @@ nav a:focus {
   transition: 0.3s;
 }
 
-/* Hamburger "X" animation when open */
 .hamburger.open span:nth-child(1) {
   transform: rotate(45deg) translate(6px, 6px);
 }
@@ -330,7 +350,9 @@ nav a:focus {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Sidebar styles */
+/* ===========================
+   Mobile Sidebar
+   =========================== */
 .mobile-sidebar {
   display: flex;
   flex-direction: column;
@@ -383,106 +405,549 @@ nav a:focus {
   cursor: pointer;
 }
 
-/* Responsive Design */
+/* ===========================
+   Categories Section
+   =========================== */
+.categories-intro {
+  margin-top: 140px;
+  text-align: center;
+  color: #fff;
+}
+
+.categories-intro h3 {
+  font-size: 2rem;
+  font-weight: 100;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+.categories-intro h3 span {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.filter-icon {
+  width: 27px;
+  height: 27px;
+  margin-left: 17px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+  align-items: stretch;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  padding: 22px 10px 18px 10px;
+  border-radius: 25px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 160px;
+  text-align: center;
+  margin: 0 auto;
+  transition: transform 0.3s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.3s;
+  box-shadow: 0 2px 12px 0 rgba(169, 69, 255, 0.08);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.category img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.mockups {
+  flex-direction: row;
+  margin: 0 auto;
+}
+.mockups img {
+  margin: inherit 5px;
+}
+
+.category:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 24px 0 rgba(169, 69, 255, 0.18);
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.category-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #a945ff22 0%, #5b02a822 100%);
+  box-shadow: 0 2px 8px 0 rgba(169, 69, 255, 0.1);
+  font-size: 1.3rem;
+  overflow: hidden;
+}
+
+.category-icon img,
+.category-icon svg {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.category h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin-top: 0;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.category p {
+  font-size: 0.82rem;
+  color: #ddd;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.13);
+  margin: 0;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+
+/* ===========================
+   Smart Picks Section
+   =========================== */
+.smart-picks {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.smart-picks h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+.smart-picks h3 span {
+  font-size: 2rem;
+  font-weight: 100;
+  margin-bottom: 32px;
+}
+
+.white-pin {
+  margin-left: 8px;
+  width: 30px;
+  height: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.smart-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smart-cards {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  max-width: 100%;
+}
+
+.smart-card {
+  background: #2c204f;
+  border-radius: 32px;
+  padding: 28px 20px;
+  min-width: 280px;
+  max-width: 300px;
+  text-align: left;
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.smart-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 18px;
+}
+
+.smart-card h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.smart-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.scroll-btn {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  padding: 0 14px;
+  transition: color 0.3s;
+}
+
+.scroll-btn:hover {
+  color: #a945ff;
+}
+
+/* ===========================
+   Section Pop Animation
+   =========================== */
+.section-pop {
+  opacity: 0;
+  transform: translateY(80px) scale(0.98);
+  transition: opacity 0.7s cubic-bezier(0.4, 2, 0.6, 1),
+    transform 0.7s cubic-bezier(0.4, 2, 0.6, 1);
+  z-index: 2;
+  position: relative;
+  will-change: opacity, transform;
+}
+
+.section-pop.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  z-index: 3;
+}
+
+/* ===========================
+   About Section
+   =========================== */
+.about-section {
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px 60px 20px;
+  position: relative;
+}
+
+.about-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 120px;
+}
+.about-divider span:first-child,
+.about-divider span:last-child {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 45%;
+  background: #fff;
+  border-radius: 2px;
+}
+.about-divider span:last-child {
+  margin-left: auto;
+}
+.about-divider span:first-child {
+  margin-right: auto;
+}
+.about-divider:before,
+.about-divider:after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  margin: 0 8px;
+}
+
+.about-section h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.about-section .about-info i {
+  font-size: 1.7rem;
+  background: #fff;
+  color: #2d0856;
+  border-radius: 50%;
+  padding: 4px;
+  margin-left: 8px;
+}
+
+.about-section p {
+  font-size: 1.4rem;
+  color: #e5e5e5;
+  max-width: 900px;
+  margin: 50px auto;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+.footer {
+  background: #18122b;
+  color: #fff;
+  padding: 50px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo {
+  width: 38px;
+  height: 38px;
+}
+
+.footer-brand {
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover,
+.footer-nav .privacy-policy:hover {
+  color: #a945ff;
+}
+
+.footer-icon i {
+  font-size: 1.3rem;
+  vertical-align: middle;
+}
+
+/* ===========================
+   Footer base style
+   =========================== */
+.footer-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 14px 0;
+  background: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Footer link style */
+.footer-divider a {
+  color: #222;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 14px;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.footer-divider a:hover,
+.footer-divider a:focus {
+  background: #ececec;
+  color: #0078d4;
+}
+
+/* Mobile footer style */
+@media (max-width: 576px) {
+  .footer {
+    padding: 28px 8px;
+  }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 0;
+    text-align: center;
+  }
+  .footer-left {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-logo {
+    width: 48px;
+    height: 48px;
+  }
+  .footer-brand {
+    font-size: 1.1rem;
+    margin-top: 4px;
+  }
+  .footer-nav {
+    justify-content: center;
+    flex-direction: row;
+    gap: 18px;
+    margin-top: 10px;
+  }
+  .footer-nav a {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+@media (max-width: 1200px) {
+  .category-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    max-width: 700px;
+  }
+  .category {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 992px) {
   .features {
     flex-direction: column;
     align-items: center;
   }
-
   .feature-card {
     max-width: 60%;
     margin-bottom: 30px;
   }
-
   .hero h1 {
     font-size: 2.5rem;
   }
-
   .hero h2 {
     font-size: 1.7rem;
   }
-
   .cta button {
     font-size: 0.95rem;
     padding: 10px 24px;
   }
 }
 
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 98vw;
+  }
+  .category {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 14px 4px 12px 4px;
+    min-height: 80px;
+  }
+}
+
 @media (max-width: 576px) {
-  /* Header: Stack and center */
   .header-content {
     flex-direction: column;
     align-items: center;
     gap: 18px;
     padding: 0 0 10px 0;
   }
-
   .logo {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: 14px; /* Adjusted for better spacing between logo-text and hamburger */
-    font-size: 1.3rem;
-    width: 100%;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    width: 90%;
   }
-
   .logo .logo-text img {
     width: 4rem;
     height: 4rem;
   }
-
   .logo-text {
     font-family: "Baloo Bhai 2", sans-serif;
     font-optical-sizing: auto;
     font-weight: bold;
     font-style: normal;
-    gap: 8px;
+    gap: 20px;
+    flex-wrap: nowrap;
   }
-
   nav {
     flex-direction: column;
     align-items: center;
     gap: 10px;
     width: 100%;
   }
-
   nav a {
     font-size: 1rem;
     padding: 4px 0;
   }
-
-  /* Feature Cards: Stack and remove float animation */
   .features {
     flex-direction: column;
     align-items: center;
     gap: 18px;
     margin-top: 30px;
   }
-
   .feature-card {
     max-width: 95%;
     min-width: unset;
     margin-bottom: 18px;
     animation: none !important;
-    /* Remove float-up/float-down animation */
     transform: none !important;
   }
-
-  /* Hero section: smaller text */
   .hero h1 {
     font-size: 2rem;
   }
-
   .hero h2 {
     font-size: 1.2rem;
   }
-
   .subtitle {
     font-size: 0.95rem;
   }
-
-  /* Hide desktop nav/auth on mobile, show hamburger */
   nav,
   .auth {
     display: none;
@@ -498,7 +963,6 @@ nav a:focus {
     display: flex;
     transform: translateX(0);
   }
-
   .mobile-auth {
     display: flex;
     flex-direction: column;
@@ -517,6 +981,46 @@ nav a:focus {
   }
 }
 
+@media (max-width: 480px) {
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .category {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 8px 2px 8px 2px;
+    min-height: 60px;
+  }
+}
+
+/* Style for mobile-auth buttons */
+.mobile-auth .signup,
+.mobile-auth .login {
+  background: white;
+  color: black;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 12px 0 rgba(80, 0, 120, 0.1);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hover effect for mobile-auth buttons */
+.mobile-auth .signup:hover,
+.mobile-auth .login:hover {
+  background: rgba(30, 41, 59, 0.32);
+  color: #fff;
+  box-shadow: 0 4px 24px 0 rgba(169, 69, 255, 0.25);
+}
+
 @media (max-width: 992px) and (min-width: 577px) {
   .header-content {
     flex-direction: column;
@@ -524,12 +1028,10 @@ nav a:focus {
     gap: 18px;
     padding: 0 0 10px 0;
   }
-
   .logo {
     justify-content: center;
     font-size: 1.5rem;
   }
-
   nav {
     flex-direction: row;
     align-items: center;
@@ -537,12 +1039,10 @@ nav a:focus {
     width: 100%;
     justify-content: center;
   }
-
   nav a {
     font-size: 1.1rem;
     padding: 6px 0;
   }
-
   .auth {
     flex-direction: row;
     gap: 16px;
@@ -550,14 +1050,12 @@ nav a:focus {
     margin-top: 0;
     justify-content: center;
   }
-
   .signup,
   .login {
     width: auto;
     font-size: 1rem;
     padding: 8px 18px;
   }
-
   .features {
     flex-direction: row;
     flex-wrap: wrap;
@@ -567,9 +1065,15 @@ nav a:focus {
   }
 
   .feature-card {
-    max-width: 320px;
-    min-width: 220px;
+    max-width: 250px;
+    min-width: 250px;
+    max-height: 250px;
+    min-height: 250px;
     margin-bottom: 18px;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    margin: 0 auto;
     animation: none !important;
     transform: none !important;
   }
@@ -577,11 +1081,9 @@ nav a:focus {
   .hero h1 {
     font-size: 2.2rem;
   }
-
   .hero h2 {
     font-size: 1.3rem;
   }
-
   .subtitle {
     font-size: 1rem;
   }

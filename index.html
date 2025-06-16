@@ -10,6 +10,11 @@
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="logo.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
   </head>
   <body>
     <header>
@@ -49,7 +54,7 @@
       </div>
     </nav>
 
-    <section class="hero scroll-in">
+    <section class="hero scroll-in section-pop">
       <div class="container">
         <h1>All designer tools</h1>
         <h2>In one place with <span class="highlight">AI</span></h2>
@@ -77,10 +82,160 @@
         </div>
 
         <div class="cta scroll-in">
-          <button>Explore Now</button>
+          <a href="#categories-intro" class="scroll-to-categories"
+            >Explore Now</a
+          >
+        </div>
+
+        <div class="categories-intro section-pop" id="categories-intro">
+          <h3>
+            Try all the <span>most used categories</span>
+            <img src="./Images/categories.png" class="filter-icon" />
+          </h3>
+          <div class="category-grid">
+            <div class="category">
+              <img src="./Images/design-tools.png" alt="Design tools icon" />
+              Design tools
+            </div>
+            <div class="category">
+              <img src="./Images/stock-images.png" alt="Stock images icon" />
+              Stock images
+            </div>
+            <div class="category">
+              <img src="./Images/typography.png" alt="Typography icon" />
+              Typography
+            </div>
+            <div class="category">
+              <div class="mockups">
+                <img src="./Images/mockups1.png" alt="Mockups icon" />
+                <img src="./Images/mockups2.png" alt="Mockups icon" />
+              </div>
+              Mockups
+            </div>
+            <div class="category">
+              <img src="./Images/icons.png" alt="Icons icon" />
+              Icons
+            </div>
+            <div class="category">
+              <img
+                style="width: 55px; height: 55px"
+                src="./Images/ui-ux.png"
+                alt="UI & UX icon"
+              />
+              UI & UX
+            </div>
+            <div class="category">
+              <img
+                src="./Images/colors-palettes.png"
+                alt="Colors & Palettes icon"
+              />
+              Colors & Palettes
+            </div>
+            <div class="category">
+              <img src="./Images/ai-tools.png" alt="AI tools icon" />
+              AI tools
+            </div>
+            <div class="category">
+              <img src="./Images/inspiration.png" alt="Inspiration icon" />
+              Inspiration
+            </div>
+            <div class="category">
+              <img src="./Images/illustration.png" alt="Illustration icon" />
+              Illustration
+            </div>
+            <div class="category">
+              <img src="./Images/3d-design.png" alt="3D Design icon" />
+              3D Design
+            </div>
+            <div class="category">
+              <img src="./Images/plugins.png" alt="Plugins icon" />
+              Plugins
+            </div>
+          </div>
+        </div>
+
+        <div class="smart-picks section-pop">
+          <h3>
+            Smart <span>Picks</span>
+            <span class="pin-icon">
+              <img src="./Images/pin.png" alt="Pin" class="white-pin" />
+            </span>
+          </h3>
+          <div class="smart-carousel">
+            <button class="scroll-btn left">&#8592;</button>
+            <div class="smart-cards">
+              <div class="smart-card">
+                <img src="coolors.png" alt="Coolors Logo" />
+                <h4>Coolors</h4>
+                <p>Fast and easy color palette generator for designers</p>
+              </div>
+              <div class="smart-card">
+                <img src="iconify.png" alt="Iconify Logo" />
+                <h4>Iconify</h4>
+                <p>
+                  Free platform that lets you access and use over 100,000 icons
+                </p>
+              </div>
+              <div class="smart-card">
+                <img src="fontshare.png" alt="Fontshare Logo" />
+                <h4>Fontshare</h4>
+                <p>Free fonts platform offering high quality fonts</p>
+              </div>
+            </div>
+            <button class="scroll-btn right">&#8594;</button>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- About Section -->
+    <section class="about-section section-pop">
+      <!-- <div class="about-divider">
+        <span></span>
+        <span></span>
+      </div> -->
+      <h2>
+        <span>About</span> us
+        <span class="about-info">
+          <i class="fa-solid fa-circle-info"></i>
+        </span>
+      </h2>
+      <p>
+        Mind Draft is an independent website developed by
+        <strong>Mohamed Hassan</strong> and designed by
+        <strong>Kamal</strong>.<br />
+        Our goal is to provide useful content and tools that help users and
+        designers turn their ideas into clear and simple outcomes.<br />
+        The project was started without external funding, but with a focus on
+        providing a clean, organized, and helpful user experience.<br />
+        We’re continuously working on improving and updating the platform based
+        on user needs.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <img src="logo.png" alt="Mind Draft Logo" class="footer-logo" />
+          <p class="footer-brand"
+            ><span>Mind Draft<span> Team @ 2025</p
+          >
+        </div>
+        <nav class="footer-nav">
+          <!-- <a href="#" class="privacy-policy">privacy policy</a> -->
+          <a href="#" class="footer-icon"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a href="#" class="footer-icon"
+            ><i class="fa-brands fa-google"></i
+          ></a>
+          <a href="#" class="footer-icon"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </nav>
+      </div>
+    </footer>
 
     <div class="purple-bottom-bar"></div>
 
@@ -102,6 +257,22 @@
           .querySelectorAll(".scroll-in")
           .forEach((el) => observer.observe(el));
 
+        // Reveal each section-pop as you scroll
+        const popObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                popObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.25 }
+        );
+        document
+          .querySelectorAll(".section-pop")
+          .forEach((el) => popObserver.observe(el));
+
         // Hamburger and sidebar toggle
         const hamburger = document.querySelector(".hamburger");
         const sidebar = document.querySelector(".mobile-sidebar");
@@ -122,6 +293,64 @@
             document.body.style.overflow = "";
           }
         });
+
+        const signup = document.querySelector(".auth .signup");
+        const login = document.querySelector(".auth .login");
+
+        // Default styles
+        function resetButtons() {
+          signup.style.background = "white";
+          signup.style.color = "black";
+          signup.style.boxShadow = "";
+          login.style.background = "rgba(30, 41, 59, 0.32)";
+          login.style.color = "#fff";
+          login.style.boxShadow = "";
+        }
+
+        // Hover on Sign Up
+        signup.addEventListener("mouseenter", function () {
+          signup.style.background = "rgba(30, 41, 59, 0.32)";
+          signup.style.color = "#fff";
+          signup.style.boxShadow = "0 4px 24px 0 rgba(169, 69, 255, 0.25)";
+          login.style.background = "white";
+          login.style.color = "black";
+          login.style.boxShadow = "none";
+        });
+        signup.addEventListener("mouseleave", resetButtons);
+
+        // Hover on Login
+        login.addEventListener("mouseenter", function () {
+          login.style.background = "white";
+          login.style.color = "black";
+          login.style.boxShadow = "none";
+          signup.style.background = "rgba(30, 41, 59, 0.32)";
+          signup.style.color = "#fff";
+          signup.style.boxShadow = "0 4px 24px 0 rgba(169, 69, 255, 0.25)";
+        });
+        login.addEventListener("mouseleave", resetButtons);
+
+        // Initialize default styles
+        resetButtons();
+
+        const btn = document.querySelector(".scroll-to-categories");
+        const target = document.getElementById("categories-intro");
+        const header = document.querySelector("header");
+
+        if (btn && target) {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            let headerHeight = header ? header.offsetHeight : 0;
+            // 30px margin above the section
+            const targetRect = target.getBoundingClientRect();
+            const scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+            const offset = targetRect.top + scrollTop - headerHeight - 30;
+            window.scrollTo({
+              top: offset,
+              behavior: "smooth",
+            });
+          });
+        }
       });
     </script>
   </body>
