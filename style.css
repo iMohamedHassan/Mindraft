@@ -654,7 +654,6 @@ nav a:focus {
 }
 
 .smart-pick-card {
-  background: #fff;
   border-radius: 32px;
   width: 340px;
   min-height: 340px;
@@ -663,8 +662,11 @@ nav a:focus {
   flex-direction: column;
   align-items: center;
   position: relative;
-  border: 3px solid #a98cff33;
+  border: 5px solid rgba(255, 255, 255, 0.2);
   overflow: visible;
+}
+.smart-pick-card *{
+  margin: 0;
 }
 
 .smart-pick-card-wrap {
@@ -760,7 +762,7 @@ nav a:focus {
 
 .smart-pick-chip {
   position: static;
-  background: linear-gradient(91.45deg, #7C3AED 8.54%, #B06CCD 113.78%);
+  background: linear-gradient(91.45deg, #7c3aed 8.54%, #b06ccd 113.78%);
   color: #fff;
   border-radius: 22px;
   padding: 7px 32px;
@@ -768,7 +770,7 @@ nav a:focus {
   font-weight: 600;
   box-shadow: 0 2px 8px 0 #0001;
   display: inline-block;
-  border: 3px solid #B06CCD;
+  border: 3px solid #b06ccd;
   opacity: 0.8;
   margin: 0;
   letter-spacing: 0.2px;
