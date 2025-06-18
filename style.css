@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Belanosima:wght@700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;700&display=swap");
 
 :root {
   --purple: #b98cff;
@@ -21,7 +21,8 @@ body {
 }
 
 * {
-  transition: background-color 0.4s ease, color 0.4s ease,border-color 0.4s ease;
+  transition: background-color 0.4s ease, color 0.4s ease,
+    border-color 0.4s ease;
 }
 
 body {
@@ -128,7 +129,7 @@ header {
 }
 
 .logo-text {
-  font-family: 'Baloo Bhai 2', Arial, sans-serif;
+  font-family: "Baloo Bhai 2", Arial, sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
   color: #1e1e1e;
@@ -159,7 +160,7 @@ nav a:hover {
   font-weight: 700;
 }
 
-nav a.active::after {
+nav a:hover::after {
   content: "";
   display: block;
   margin: 0 auto;
@@ -828,7 +829,7 @@ body.dark .scroll-top-btn:hover {
   scroll-behavior: smooth;
   padding: 8px 0;
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 .carousel-cards::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
@@ -836,7 +837,7 @@ body.dark .scroll-top-btn:hover {
 .carousel-card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   border: 2px solid #e3d6ff;
   min-width: 300px;
   max-width: 300px;
@@ -847,7 +848,7 @@ body.dark .scroll-top-btn:hover {
   transition: box-shadow 0.2s, border 0.2s, background 0.2s;
 }
 .carousel-card:hover {
-  box-shadow: 0 4px 16px rgba(124,77,255,0.13);
+  box-shadow: 0 4px 16px rgba(124, 77, 255, 0.13);
   border-color: var(--purple-dark);
 }
 .carousel-logo {
@@ -855,7 +856,7 @@ body.dark .scroll-top-btn:hover {
   display: block;
 }
 .carousel-desc {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 1rem;
   color: #222;
   text-align: center;
@@ -870,7 +871,7 @@ body.dark .scroll-top-btn:hover {
   font-size: 1rem;
   margin-bottom: 10px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(124,77,255,0.08);
+  box-shadow: 0 2px 8px rgba(124, 77, 255, 0.08);
   transition: background 0.2s;
   outline: 2px solid var(--purple);
   outline-offset: 2px;
@@ -891,22 +892,33 @@ body.dark .scroll-top-btn:hover {
   font-size: 1rem;
   font-weight: 600;
   margin-top: 2px;
-  box-shadow: 0 2px 8px rgba(124,77,255,0.10);
+  box-shadow: 0 2px 8px rgba(124, 77, 255, 0.1);
   transition: background 0.2s, color 0.2s;
 }
 
 /* Dark mode for carousel */
 body.dark .carousel-card {
-  background: #23202b;
+  background: var(--glass-bg, #18122b);
   border-color: #7c4dff;
 }
 body.dark .carousel-desc {
   color: #f5f5f7;
 }
 body.dark .carousel-save {
-  background: #fff;
-  color: #23202b;
+  background: #23202b;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 4px 24px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(124, 77, 255, 0.18);
+  transition: background 0.2s, color 0.2s;
   outline: 2px solid var(--purple-dark);
+  outline-offset: 2px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 body.dark .carousel-save:hover {
   background: var(--purple-dark);
@@ -945,7 +957,7 @@ body.dark .carousel-tag {
 .carousel-card {
   background: #eee;
   border-radius: 24px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.09);
   border: 2.5px solid #d1c4e9;
   min-width: 400px;
   max-height: 420px;
