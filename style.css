@@ -1048,9 +1048,8 @@ body.dark .carousel-arrow:hover {
     -webkit-overflow-scrolling: touch;
   }
   .carousel-card {
-    min-width: 330px;
-    min-height: 320px;
-    max-height: 420px;
+    min-width: 300px;
+    max-height: fit-content;
     scroll-snap-align: center;
   }
   .carousel-arrow {
