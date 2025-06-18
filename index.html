@@ -4,12 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mind Draft</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Belanosima:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="icon.png" type="image/png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -18,456 +17,396 @@
   </head>
 
   <body>
-    <header>
-      <div class="container header-content">
-        <div class="logo">
-          <div class="logo-text">
-            <img src="icon.png" alt="Mind Draft Logo" />
-            <span>Mind Draft</span>
+    <canvas id="bgparticles"></canvas>
+    <div class="hero-bg-shapes"></div>
+    <div class="main-bg">
+      <header>
+        <div class="header-inner">
+          <a href="index.html" class="logo-box glass">
+            <img src="images/logo.svg" alt="Mind Draft Logo" class="logo-img" />
+            <span class="logo-text">Mind Draft</span>
+          </a>
+          <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">About us</a>
+            <a href="#">Contact</a>
+            <a href="#">Saved Links</a>
+          </nav>
+          <div class="auth">
+            <a href="#" class="signup-btn">Sign Up</a>
+            <a href="#">Login</a>
+            <button
+              id="darkToggle"
+              class="dark-toggle"
+              aria-label="Toggle dark mode"
+            >
+              <i class="fa-solid fa-moon" id="darkIcon"></i>
+            </button>
           </div>
-          <button class="hamburger" aria-label="Open menu">
+          <button class="hamburger" id="hamburger" aria-label="Open menu">
             <span></span>
             <span></span>
             <span></span>
           </button>
         </div>
-        <nav>
-          <a href="#">Home</a>
+      </header>
+
+      <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-inner">
+          <a href="#" class="active">Home</a>
           <a href="#">About us</a>
           <a href="#">Contact</a>
           <a href="#">Saved Links</a>
-        </nav>
-        <div class="auth">
-          <a class="signup">Sign Up</a>
-          <a class="login">Login</a>
-        </div>
-      </div>
-    </header>
-
-    <nav class="mobile-sidebar">
-      <a href="#">Home</a>
-      <a href="#">About us</a>
-      <a href="#">Contact</a>
-      <a href="#">Saved Links</a>
-      <div class="mobile-auth">
-        <a class="signup">Sign Up</a>
-        <a class="login">Login</a>
-      </div>
-    </nav>
-
-    <section class="hero scroll-in section-pop">
-      <div class="container">
-        <h1>All designer tools</h1>
-        <h2>In one place with <span class="highlight">AI</span></h2>
-        <p class="subtitle">Save your time. Design faster.</p>
-
-        <div class="features">
-          <div class="feature-card left float-down scroll-in">
-            <h3>Design faster</h3>
-            <p>Boost your creativity with hand-picked tools and smart search</p>
+          <div class="mobile-auth">
+            <a href="#" class="signup-btn">Sign Up</a>
+            <a href="#">Login</a>
           </div>
-          <div class="feature-card center float-up scroll-in">
-            <h3>Organize Your Resources</h3>
-            <p>
-              Save your favorite design tools, icons, fonts, and websites in one
-              place
-            </p>
-          </div>
-          <div class="feature-card right float-down scroll-in">
-            <h3>Discover AI Powered Tools</h3>
-            <p>
-              Get access to tools that help you generate mockups, color
-              palettes, and more with AI
-            </p>
-          </div>
-        </div>
-
-        <div class="cta scroll-in">
-          <a href="#categories-intro" class="scroll-to-categories"
-            >Explore Now</a
+          <button
+            id="mobileDarkToggle"
+            class="dark-toggle"
+            aria-label="Toggle dark mode"
           >
+            <i class="fa-solid fa-moon" id="mobileDarkIcon"></i>
+          </button>
         </div>
+      </nav>
 
-        <div class="categories-intro section-pop" id="categories-intro">
-          <h3>
-            Try all the <span>most used categories</span>
-            <img src="./Images/categories/categories.png" class="filter-icon" />
-          </h3>
-          <div class="category-grid">
+      <main>
+        <section class="hero">
+          <h1>
+            Your Gateway to the Best<br />
+            <span class="highlight-gradient">Design Tools</span> on the Web
+          </h1>
+          <p class="subtitle">
+            A curated collection of trusted websites for designers&nbsp; from<br />
+            icons and fonts to color tools, inspiration, and more.
+          </p>
+          <h2 class="categories-title">
+            Try all the <span class="bold">Most Used Categories</span>
+            <span
+              class="iconify"
+              style="font-size: 1.3em; color: #1e1e1e"
+              data-icon="fluent:list-16-filled"
+            ></span>
+          </h2>
+          <div class="categories">
             <div class="category">
-              <img
-                src="./Images/categories/design-tools.png"
-                alt="Design tools icon"
-              />
+              <span
+                class="iconify"
+                data-icon="fluent:design-ideas-20-filled"
+              ></span>
               Design tools
             </div>
             <div class="category">
-              <img
-                src="./Images/categories/stock-images.png"
-                alt="Stock images icon"
-              />
+              <span class="iconify" data-icon="uil:images"></span>
               Stock images
             </div>
             <div class="category">
-              <img
-                src="./Images/categories/typography.png"
-                alt="Typography icon"
-              />
+              <span class="iconify" data-icon="file-icons:font-outline"></span>
               Typography
             </div>
             <div class="category">
-              <div class="mockups">
-                <img
-                  src="./Images/categories/mockups1.png"
-                  alt="Mockups icon"
-                />
-                <img
-                  src="./Images/categories/mockups2.png"
-                  alt="Mockups icon"
-                />
+              <div>
+                <span class="iconify" data-icon="gravity-ui:display"></span
+                ><span class="iconify" data-icon="gravity-ui:smartphone"></span>
               </div>
               Mockups
             </div>
             <div class="category">
-              <img src="./Images/categories/icons.png" alt="Icons icon" />
-              Icons
+              <span class="iconify" data-icon="tdesign:icon"></span> Icons
             </div>
             <div class="category">
-              <img
-                style="width: 55px; height: 55px"
-                src="./Images/categories/ui-ux.png"
-                alt="UI & UX icon"
-              />
+              <span class="iconify" data-icon="gg:ui-kit"></span>
               UI & UX
             </div>
             <div class="category">
-              <img
-                src="./Images/categories/colors-palettes.png"
-                alt="Colors & Palettes icon"
-              />
+              <span class="iconify" data-icon="solar:palette-outline"></span>
               Colors & Palettes
             </div>
             <div class="category">
-              <img src="./Images/categories/ai-tools.png" alt="AI tools icon" />
-              AI tools
+              <span class="iconify" data-icon="mingcute:ai-fill"></span> AI
+              tools
             </div>
             <div class="category">
-              <img
-                src="./Images/categories/inspiration.png"
-                alt="Inspiration icon"
-              />
+              <span class="iconify" data-icon="mdi:idea"></span>
               Inspiration
             </div>
             <div class="category">
-              <img
-                src="./Images/categories/illustration.png"
-                alt="Illustration icon"
-              />
+              <span class="iconify" data-icon="uil:illustration"></span>
               Illustration
             </div>
             <div class="category">
-              <img
-                src="./Images/categories/3d-design.png"
-                alt="3D Design icon"
-              />
-              3D Design
+              <span class="iconify" data-icon="mdi:cube-outline"></span> 3D
+              Design
             </div>
             <div class="category">
-              <img src="./Images/categories/plugins.png" alt="Plugins icon" />
+              <span class="iconify" data-icon="mdi:puzzle-outline"></span>
               Plugins
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="smart-picks section-pop">
-          <div class="smart-picks-header">
-            <h3>
-              <span class="smart-picks-bold">Smart </span>
-              <span class="smart-picks-regular">Picks</span>
-            </h3>
-            <span class="pin-icon">
-              <img
-                src="./Images/Smart picks/pin.png"
-                alt="Pin"
-                class="white-pin"
-              />
-            </span>
+        <!-- Smart Picks Section -->
+        <section class="smart-picks">
+          <div class="smart-picks-title">
+            <span class="bold">Smart</span> Picks
+            <span
+              class="iconify"
+              style="font-size: 1em; color: #1e1e1e"
+              data-icon="mynaui:pin-solid"
+            ></span>
           </div>
-
           <div class="smart-picks-carousel">
-            <button class="smart-arrow left">
-              <img
-                src="./Images/Smart picks/left-arrow.png"
-                alt="Scroll left"
-                class="arrow-img"
-              />
+            <button class="carousel-arrow left" aria-label="Previous">
+              <span
+                class="iconify"
+                data-icon="fluent:ios-arrow-24-filled"
+              ></span>
             </button>
-            <div class="smart-picks-cards-outer">
-              <div class="smart-picks-cards">
-                <div class="smart-pick-card-wrap">
-                  <div class="smart-pick-card">
-                    <div class="smart-pick-logo">
-                      <img
-                        src="./Images/Smart picks/coolors.png"
-                        alt="Coolors Logo"
-                      />
-                    </div>
-                    <div class="smart-pick-info">
-                      <span class="smart-pick-title">Coolors</span>
-                      <span class="smart-pick-desc">
-                        is Fast and easy color palette generator for designers
-                      </span>
-                      <button class="smart-pick-save">save</button>
-                    </div>
-                  </div>
-                  <div class="smart-pick-chips">
-                    <div class="smart-pick-chip colors">
-                      Colors &amp; Palettes
-                    </div>
-                  </div>
+            <div class="carousel-cards">
+              <a href="#" class="carousel-card">
+                <img
+                  src="./Images/Coolors.png"
+                  alt="Coolors Logo"
+                  class="carousel-logo"
+                />
+                <div class="carousel-desc">
+                  <strong>Coolors</strong> is Fast and easy color palette
+                  generator for designers
                 </div>
-
-                <div class="smart-pick-card-wrap">
-                  <div class="smart-pick-card">
-                    <div class="smart-pick-logo">
-                      <img
-                        src="./Images/Smart picks/iconify.png"
-                        alt="Iconify Logo"
-                      />
-                    </div>
-                    <div class="smart-pick-info">
-                      <span class="smart-pick-title">Iconify</span>
-                      <span class="smart-pick-desc">
-                        is free platform that lets you access and use over
-                        100,000 icons
-                      </span>
-                      <button class="smart-pick-save">save</button>
-                    </div>
-                  </div>
-                  <div class="smart-pick-chips">
-                    <div class="smart-pick-chip icons">Icons</div>
-                    <div class="smart-pick-chip plugins">Plugins</div>
-                  </div>
+                <button class="carousel-save">save</button>
+                <div class="carousel-tags">
+                  <span class="carousel-tag">Colors & Palettes</span>
                 </div>
-
-                <div class="smart-pick-card-wrap">
-                  <div class="smart-pick-card">
-                    <div class="smart-pick-logo">
-                      <img
-                        src="./Images/Smart picks/Fontshare.png"
-                        alt="Fontshare Logo"
-                      />
-                    </div>
-                    <div class="smart-pick-info">
-                      <span class="smart-pick-title">Fontshare</span>
-                      <span class="smart-pick-desc">
-                        is free fonts platform offering high quality fonts
-                      </span>
-                      <button class="smart-pick-save">save</button>
-                    </div>
-                  </div>
-                  <div class="smart-pick-chips">
-                    <div class="smart-pick-chip typography">Typography</div>
-                  </div>
+              </a>
+              <a href="#" class="carousel-card">
+                <img
+                  src="./Images/Iconify.png"
+                  alt="iconify Logo"
+                  class="carousel-logo"
+                />
+                <div class="carousel-desc">
+                  <strong>Iconify</strong> is free platform that lets you access
+                  and use over 100,000 icons
                 </div>
-              </div>
+                <button class="carousel-save">save</button>
+                <div class="carousel-tags">
+                  <span class="carousel-tag">Icons</span>
+                  <span class="carousel-tag">Plugins</span>
+                </div>
+              </a>
+              <a href="#" class="carousel-card">
+                <img
+                  src="./Images/Fontshare.png"
+                  alt="Fontshare Logo"
+                  class="carousel-logo"
+                />
+                <div class="carousel-desc">
+                  <strong>Fontshare</strong> is free fonts platform offering
+                  high quality fonts
+                </div>
+                <button class="carousel-save">save</button>
+                <div class="carousel-tags">
+                  <span class="carousel-tag">Typography</span>
+                </div>
+              </a>
             </div>
-            <button class="smart-arrow right">
-              <img
-                src="./Images/Smart picks/right-arrow.png"
-                alt="Scroll right"
-                class="arrow-img"
-              />
+            <button class="carousel-arrow right" aria-label="Next">
+              <span
+                class="iconify"
+                data-icon="fluent:ios-arrow-rtl-24-filled"
+              ></span>
             </button>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      </main>
+    </div>
 
-    <!-- About Section -->
-    <section class="about-section section-pop">
-      <!-- <div class="about-divider">
-        <span></span>
-        <span></span>
-      </div> -->
-      <h2>
-        <span>About</span> us
-        <span class="about-info">
-          <img src="./Images/i.png" alt="About Info" />
-        </span>
-      </h2>
-      <p>
-        Mind Draft is an independent website developed by
-        <strong>Mohamed Hassan</strong> and designed by
-        <strong>Kamal</strong>.<br />
-        Our goal is to provide useful content and tools that help users and
-        designers turn their ideas into clear and simple outcomes.<br />
-        The project was started without external funding, but with a focus on
-        providing a clean, organized, and helpful user experience.<br />
-        We’re continuously working on improving and updating the platform based
-        on user needs.
-      </p>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-left">
-          <img src="logo.png" alt="Mind Draft Logo" class="footer-logo" />
-          <p class="footer-brand"><span>Mind Draft</span> Team &copy; 2025</p>
-        </div>
-        <nav class="footer-nav">
-          <!-- <a href="#" class="privacy-policy">privacy policy</a> -->
-          <a href="#" class="footer-icon"
-            ><i class="fa-brands fa-linkedin-in"></i
-          ></a>
-          <a href="#" class="footer-icon"
-            ><i class="fa-brands fa-google"></i
-          ></a>
-          <a href="#" class="footer-icon"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-        </nav>
-      </div>
-    </footer>
-
-    <div class="purple-bottom-bar"></div>
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+      <span class="iconify" data-icon="mdi:arrow-up"></span>
+    </button>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Scroll-in animation
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.15 }
+      const hamburger = document.getElementById("hamburger");
+      const mobileNav = document.getElementById("mobileNav");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileNav.classList.toggle("open");
+        document.body.classList.toggle(
+          "no-scroll",
+          mobileNav.classList.contains("open")
         );
-        document
-          .querySelectorAll(".scroll-in")
-          .forEach((el) => observer.observe(el));
+      });
 
-        // Reveal each section-pop as you scroll
-        const popObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                popObserver.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.25 }
+      document.querySelectorAll(".mobile-nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          mobileNav.classList.remove("open");
+          document.body.classList.remove("no-scroll");
+        });
+      });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".hero h1").classList.add("animate-in");
+        document.querySelector(".subtitle").classList.add("animate-in");
+        setTimeout(() => {
+          document.querySelector(".categories").classList.add("animate-in");
+        }, 400);
+
+        // Restore dark mode preference
+        if (localStorage.getItem("mindraft-dark") === "1") {
+          document.body.classList.add("dark");
+        }
+        setDarkIcon();
+      });
+
+      const categories = document.querySelectorAll(".category");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("pop-in");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      categories.forEach((cat) => observer.observe(cat));
+
+      // Dark mode toggle
+      const darkToggle = document.getElementById("darkToggle");
+      let darkIcon = document.getElementById("darkIcon");
+
+      function setDarkIcon() {
+        if (!darkIcon) return;
+        if (document.body.classList.contains("dark")) {
+          darkIcon.classList.remove("fa-moon");
+          darkIcon.classList.add("fa-sun");
+        } else {
+          darkIcon.classList.remove("fa-sun");
+          darkIcon.classList.add("fa-moon");
+        }
+      }
+
+      // Mobile dark mode toggle
+      const mobileDarkToggle = document.getElementById("mobileDarkToggle");
+      const mobileDarkIcon = document.getElementById("mobileDarkIcon");
+
+      function setMobileDarkIcon() {
+        if (!mobileDarkIcon) return;
+        if (document.body.classList.contains("dark")) {
+          mobileDarkIcon.classList.remove("fa-moon");
+          mobileDarkIcon.classList.add("fa-sun");
+        } else {
+          mobileDarkIcon.classList.remove("fa-sun");
+          mobileDarkIcon.classList.add("fa-moon");
+        }
+      }
+
+      // Sync both icons
+      function syncDarkIcons() {
+        setDarkIcon();
+        setMobileDarkIcon();
+      }
+
+      if (mobileDarkToggle) {
+        mobileDarkToggle.addEventListener("click", () => {
+          document.body.classList.toggle("dark");
+          syncDarkIcons();
+          localStorage.setItem(
+            "mindraft-dark",
+            document.body.classList.contains("dark") ? "1" : ""
+          );
+        });
+      }
+
+      darkToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        syncDarkIcons();
+        localStorage.setItem(
+          "mindraft-dark",
+          document.body.classList.contains("dark") ? "1" : ""
         );
-        document
-          .querySelectorAll(".section-pop")
-          .forEach((el) => popObserver.observe(el));
+      });
 
-        // Hamburger and sidebar toggle
-        const hamburger = document.querySelector(".hamburger");
-        const sidebar = document.querySelector(".mobile-sidebar");
-
-        hamburger.addEventListener("click", () => {
-          sidebar.classList.toggle("open");
-          hamburger.classList.toggle("open");
-          document.body.style.overflow = sidebar.classList.contains("open")
-            ? "hidden"
-            : "";
-        });
-
-        // Optional: close sidebar when clicking outside the menu content
-        sidebar.addEventListener("click", (e) => {
-          if (e.target === sidebar) {
-            sidebar.classList.remove("open");
-            hamburger.classList.remove("open");
-            document.body.style.overflow = "";
-          }
-        });
-
-        const signup = document.querySelector(".auth .signup");
-        const login = document.querySelector(".auth .login");
-
-        // Default styles
-        function resetButtons() {
-          signup.style.background = "white";
-          signup.style.color = "black";
-          signup.style.boxShadow = "";
-          login.style.background = "rgba(30, 41, 59, 0.32)";
-          login.style.color = "#fff";
-          login.style.boxShadow = "";
-        }
-
-        // Hover on Sign Up
-        signup.addEventListener("mouseenter", function () {
-          signup.style.background = "rgba(30, 41, 59, 0.32)";
-          signup.style.color = "#fff";
-          signup.style.boxShadow = "0 4px 24px 0 rgba(169, 69, 255, 0.25)";
-          login.style.background = "white";
-          login.style.color = "black";
-          login.style.boxShadow = "none";
-        });
-        signup.addEventListener("mouseleave", resetButtons);
-
-        // Hover on Login
-        login.addEventListener("mouseenter", function () {
-          login.style.background = "white";
-          login.style.color = "black";
-          login.style.boxShadow = "none";
-          signup.style.background = "rgba(30, 41, 59, 0.32)";
-          signup.style.color = "#fff";
-          signup.style.boxShadow = "0 4px 24px 0 rgba(169, 69, 255, 0.25)";
-        });
-        login.addEventListener("mouseleave", resetButtons);
-
-        // Initialize default styles
-        resetButtons();
-
-        const btn = document.querySelector(".scroll-to-categories");
-        const target = document.getElementById("categories-intro");
-        const header = document.querySelector("header");
-
-        if (btn && target) {
-          btn.addEventListener("click", function (e) {
-            e.preventDefault();
-            let headerHeight = header ? header.offsetHeight : 0;
-            // 30px margin above the section
-            const targetRect = target.getBoundingClientRect();
-            const scrollTop =
-              window.pageYOffset || document.documentElement.scrollTop;
-            const offset = targetRect.top + scrollTop - headerHeight - 30;
-            window.scrollTo({
-              top: offset,
-              behavior: "smooth",
-            });
-          });
-        }
-
-        // Smart Picks Carousel Scroll
-        const outer = document.querySelector(".smart-picks-cards-outer");
-        const leftArrow = document.querySelector(".smart-arrow.left");
-        const rightArrow = document.querySelector(".smart-arrow.right");
-        const card = document.querySelector(".smart-pick-card");
-
-        function scrollCards(direction) {
-          if (!outer || !card) return;
-          const scrollAmount = card.offsetWidth + 38; // card width + gap
-          outer.scrollBy({
-            left: direction * scrollAmount,
-            behavior: "smooth",
-          });
-        }
-
-        if (leftArrow) {
-          leftArrow.addEventListener("click", () => scrollCards(-1));
-        }
-        if (rightArrow) {
-          rightArrow.addEventListener("click", () => scrollCards(1));
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+          scrollTopBtn.classList.add("show");
+        } else {
+          scrollTopBtn.classList.remove("show");
         }
       });
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      document.querySelectorAll(".carousel-arrow").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const cards = document.querySelector(".carousel-cards");
+          const scrollAmount = 300;
+          if (this.classList.contains("left")) {
+            cards.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+          } else {
+            cards.scrollBy({ left: scrollAmount, behavior: "smooth" });
+          }
+        });
+      });
+    </script>
+
+    <script>
+      // Simple Canvas Particle Background
+      const canvas = document.getElementById("bgparticles");
+      const ctx = canvas.getContext("2d");
+      let particles = [];
+      const colors = ["#b98cff", "#7c4dff", "#fff"];
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+        createParticles();
+      });
+
+      function createParticles() {
+        particles = [];
+        const count = Math.floor(window.innerWidth / 18);
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 2.5 + 1.5,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            dx: (Math.random() - 0.5) * 0.7,
+            dy: (Math.random() - 0.5) * 0.7,
+            opacity: Math.random() * 0.5 + 0.15,
+          });
+        }
+      }
+      createParticles();
+
+      function drawParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of particles) {
+          ctx.globalAlpha = p.opacity;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+          p.x += p.dx;
+          p.y += p.dy;
+          if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        }
+        requestAnimationFrame(drawParticles);
+      }
+      drawParticles();
     </script>
   </body>
 </html>
