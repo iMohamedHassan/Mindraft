@@ -714,6 +714,10 @@ body.dark * {
   .hero h1 {
     font-size: 1.6rem;
   }
+  .hero .subtitle {
+    font-size: 0.8rem;
+    max-width: 90%;
+  }
 }
 
 /* Scroll to top button */
