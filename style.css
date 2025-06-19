@@ -759,12 +759,9 @@ body.dark * {
   color: #fff;
 }
 body.dark .scroll-top-btn {
-  background: linear-gradient(135deg, #2d2940, var(--purple-dark));
-  color: #fff;
   box-shadow: 0 6px 32px #7c4dff44, 0 1.5px 8px #b98cff22;
 }
 body.dark .scroll-top-btn:hover {
-  background: linear-gradient(135deg, var(--purple-dark), #2d2940);
   box-shadow: 0 10px 40px #7c4dff66, 0 2px 12px #b98cff33;
 }
 .category .iconify,
