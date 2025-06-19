@@ -896,7 +896,6 @@ body.dark .scroll-top-btn:hover {
 /* Dark mode for carousel */
 body.dark .carousel-card {
   background: var(--glass-bg, #18122b);
-  border-color: #7c4dff;
 }
 body.dark .carousel-desc {
   color: #f5f5f7;
