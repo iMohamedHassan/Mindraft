@@ -523,7 +523,7 @@ body.dark {
   color: #fff;
 }
 body.dark .main-bg {
-  background: linear-gradient(120deg, #18122b 60%, #231a3a 100%);
+  background: transparent;
   box-shadow: 0 8px 48px 0 #0008;
 }
 body.dark .logo-box,
