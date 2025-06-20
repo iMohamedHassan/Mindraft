@@ -997,7 +997,7 @@ body.dark .carousel-tag {
   font-size: 3.2rem;
   color: var(--purple-dark);
   transition: color 0.2s, transform 0.2s;
-  padding: 0 22px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
