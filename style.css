@@ -526,7 +526,6 @@ body.dark .main-bg {
   background: transparent;
   box-shadow: 0 8px 48px 0 #0008;
 }
-body.dark .logo-box,
 body.dark .category,
 body.dark .hamburger,
 body.dark .mobile-nav {
@@ -1045,7 +1044,6 @@ body.dark .carousel-arrow:hover {
   }
   .carousel-card {
     min-width: 300px;
-    max-height: fit-content;
     scroll-snap-align: center;
   }
   .carousel-arrow {
