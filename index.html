@@ -78,8 +78,8 @@
             <span class="highlight-gradient">Design Tools</span> on the Web
           </h1>
           <p class="subtitle">
-            A curated collection of trusted websites for designers from
-            icons and fonts to color tools, inspiration, and more.
+            A curated collection of trusted websites for designers from icons
+            and fonts to color tools, inspiration, and more.
           </p>
           <h2 class="categories-title">
             Try all the <span class="bold">Most Used Categories</span>
@@ -219,7 +219,97 @@
             </button>
           </div>
         </section>
+        <section class="ai-chat-section">
+          <div class="ai-chat-header">
+            <div class="ai-chat-badge">
+              <img src="./Images/logo.svg" alt="Brain Logo" />
+              <span>AI assistant</span>
+            </div>
+          </div>
+          <div class="ai-chat-window">
+            <div class="ai-chat-title">How Can I Help You ?</div>
+            <div class="ai-chat-history" id="chat-body"></div>
+            <form class="ai-chat-form" id="aiChatForm" autocomplete="on">
+              <input
+                type="text"
+                class="ai-chat-input"
+                id="user-input"
+                placeholder="Write anything you want"
+                required
+              />
+              <button
+                type="submit"
+                class="ai-chat-send"
+                id="send-btn"
+                aria-label="Send"
+              >
+                <span class="iconify" data-icon="mingcute:ai-line"></span>
+              </button>
+            </form>
+          </div>
+        </section>
+        <section class="about-section">
+          <div class="about-title">
+            <span class="line"></span>
+            <span class="about-heading">About us</span>
+            <span
+              class="iconify info-icon"
+              data-icon="mdi:information-outline"
+            ></span>
+            <span class="line"></span>
+          </div>
+          <div class="about-content">
+            Mind Draft is an independent website developed by
+            <a href="https://www.linkedin.com/in/mohamed-hassan-310608274" target="_blank" class="about-link"
+              >Mohamed Hassan</a
+            >
+            and designed by
+            <a
+              href="https://www.linkedin.com/in/kamal-el-den-fathy"
+              target="_blank"
+              class="about-link"
+              >Kamal</a
+            >.<br />
+            Our goal is to provide useful content and tools that help users and
+            designers turn their ideas into clear and simple outcomes.<br />
+            The project was started without external funding, but with a focus
+            on providing a clean, organized, and helpful user experience.<br />
+            We’re continuously working on improving and updating the platform
+            based on user needs.
+          </div>
+        </section>
       </main>
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <img
+              src="./Images/logo.svg"
+              alt="Mind Draft Logo"
+              class="footer-logo"
+            />
+            <span class="footer-copy">Mind Draft Team © 2025</span>
+          </div>
+          <div class="footer-links">
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <span class="iconify" data-icon="mdi:linkedin"></span>
+            </a>
+            <a href="https://google.com/" target="_blank" aria-label="Google">
+              <span class="iconify" data-icon="mdi:google"></span>
+            </a>
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <span class="iconify" data-icon="mdi:instagram"></span>
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
 
     <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
@@ -346,7 +436,7 @@
       document.querySelectorAll(".carousel-arrow").forEach((btn) => {
         btn.addEventListener("click", function () {
           const cards = document.querySelector(".carousel-cards");
-          const scrollAmount = 300;
+          const scrollAmount = 450;
           if (this.classList.contains("left")) {
             cards.scrollBy({ left: -scrollAmount, behavior: "smooth" });
           } else {
@@ -407,6 +497,88 @@
         requestAnimationFrame(drawParticles);
       }
       drawParticles();
+
+      const OPENROUTER_API_KEY =
+        "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";
+
+      // --- DOM Elements ---
+      const chatBody = document.getElementById("chat-body");
+      const userInput = document.getElementById("user-input");
+      const sendBtn = document.getElementById("send-btn");
+
+      // --- Helper Functions ---
+      function appendMessage(content, sender = "user") {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = `message ${sender}`;
+        if (sender === "bot") {
+          msgDiv.innerHTML = `<span>${content}</span> <span class="logo"><img src="./Images/logo.svg" alt="logo"></span>`;
+        } else {
+          msgDiv.innerHTML = `<span>${content}</span>`;
+        }
+        chatBody.appendChild(msgDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      function setInputDisabled(disabled) {
+        userInput.disabled = disabled;
+        sendBtn.disabled = disabled;
+      }
+
+      // --- AI API Call (OpenRouter) ---
+      async function fetchAIResponse(message) {
+        const endpoint = "https://openrouter.ai/api/v1/chat/completions";
+        const headers = {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+          "HTTP-Referer": window.location.origin,
+          "X-Title": "AI Chat Demo",
+        };
+        const body = JSON.stringify({
+          model: "mistralai/mistral-7b-instruct",
+          messages: [
+            { role: "system", content: "You are a helpful assistant." },
+            { role: "user", content: message },
+          ],
+        });
+
+        try {
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers,
+            body,
+          });
+          if (!res.ok) {
+            throw new Error("API error: " + res.status);
+          }
+          const data = await res.json();
+          return data.choices[0].message.content.trim();
+        } catch (err) {
+          return "Sorry, I couldn't get a response. Please check your API key or try again later.";
+        }
+      }
+
+      // --- Event Handlers ---
+      async function handleSend(e) {
+        if (e) e.preventDefault();
+        const message = userInput.value.trim();
+        if (!message) return;
+        appendMessage(message, "user");
+        userInput.value = "";
+        setInputDisabled(true);
+        appendMessage("...", "bot");
+        const botMsgDiv = chatBody.querySelector(
+          ".message.bot:last-child span"
+        );
+        const aiResponse = await fetchAIResponse(message);
+        botMsgDiv.textContent = aiResponse;
+        setInputDisabled(false);
+        userInput.focus();
+      }
+
+      sendBtn.onclick = handleSend;
+      userInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") handleSend(e);
+      });
     </script>
   </body>
 </html>
