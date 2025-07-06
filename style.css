@@ -1285,7 +1285,7 @@ body.dark .carousel-arrow:hover {
     padding: 0 0vw;
   }
   .ai-chat-title {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     padding: 16px 0 10px 0;
   }
   .ai-chat-form {
@@ -1401,6 +1401,11 @@ body.dark .message.bot span {
 .about-link:hover {
   color: var(--purple, #b98cff);
   text-decoration: none;
+}
+@media (max-width: 600px) {
+  .about-content{
+    font-size: 1.1rem;
+  }
 }
 
 /* Dark mode */
