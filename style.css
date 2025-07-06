@@ -1289,12 +1289,15 @@ body.dark .carousel-arrow:hover {
     padding: 16px 0 10px 0;
   }
   .ai-chat-form {
-    width: 100%;
-    padding: 6px 2px;
+    width: 90%;
+    /* padding: 6px 2px; */
   }
   .ai-chat-history {
     padding: 8px 2px 0 2px;
     font-size: 0.98rem;
+  }
+  .message.bot{
+    width: 100%;
   }
 }
 
@@ -1347,7 +1350,7 @@ body.dark .message.bot span {
   border-radius: 24px;
   /* box-shadow: 0 2px 16px #b98cff11; */
   /* border: 2px solid var(--purple-light, #e3d6ff); */
-  max-width: 900px;
+  max-width: 1000px;
   margin: 48px auto 32px auto;
   padding: 36px 24px 28px 24px;
   text-align: center;
@@ -1384,7 +1387,7 @@ body.dark .message.bot span {
 }
 
 .about-content {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #23202b;
   line-height: 1.7;
 }
@@ -1483,6 +1486,9 @@ body.dark .about-title .info-icon {
 
 /* Responsive */
 @media (max-width: 900px) {
+  .message{
+    font-size: 1rem;
+  }
   .footer-inner {
     flex-direction: column;
     align-items: center;
@@ -1499,7 +1505,7 @@ body.dark .about-title .info-icon {
   }
   .footer-links {
     gap: 16px;
-    font-size: 1.3em;
+    font-size: 1.1em;
     margin-top: 8px;
   }
   .footer-copy {
